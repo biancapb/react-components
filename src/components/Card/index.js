@@ -1,13 +1,36 @@
+import { useState } from "react";
+import Button from "../Button";
+
 const Card = () => {
+
+    const [valor, setValor] = useState(0)
+
+    function Adicionar() {
+        setValor(valor + 1);
+    }
+
+    function Remover() {
+        setValor(valor - 1);
+    }
+
     return(
-        <div class="card">
-        <div class="card-header">
+        <div className="card">
+        <div className="card-header">
             Featured
         </div>
-        <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div className="card-body">
+            <Button
+                className="btn btn-outline-success" 
+                onClick={Adicionar}>
+                    Adicionar
+            </Button>
+            <Button 
+                className="btn btn-outline-danger"
+                onClick={Remover}>
+                    Remover
+            </Button>
+
+            <p>{valor}</p>
         </div>
         </div>
     )
